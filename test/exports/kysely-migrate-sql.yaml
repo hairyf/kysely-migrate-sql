@@ -1,0 +1,3 @@
+.:
+  SqlMigrationProvider: function
+  SqlMigrator: function

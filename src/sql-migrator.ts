@@ -1,16 +1,17 @@
-import type { MigratorProps } from 'kysely'
+import type { Kysely, MigratorProps } from 'kysely'
 import { Migrator } from 'kysely'
-import SqlMigrationProvider from './sql-migration-provider'
+import { SqlMigrationProvider } from './sql-migration-provider'
 
 export interface SqlMigratorProps extends Omit<MigratorProps, 'provider'> {
   migrations: Record<string, string>
 }
 
 export class SqlMigrator extends Migrator {
-  constructor(options: SqlMigratorProps) {
+  constructor(db: Kysely<any>, options: SqlMigratorProps) {
     super({
-      provider: new SqlMigrationProvider({ migrations: options.migrations }),
       ...options,
+      provider: new SqlMigrationProvider({ migrations: options.migrations }),
+      db,
     })
   }
 }

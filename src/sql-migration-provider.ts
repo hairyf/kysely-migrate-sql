@@ -5,7 +5,7 @@ interface MigrationProviderProps {
   migrations: Record<string, string>
 }
 
-export default class SqlMigrationProvider implements MigrationProvider {
+export class SqlMigrationProvider implements MigrationProvider {
   migrations: Record<string, string>
 
   constructor(props: MigrationProviderProps) {
