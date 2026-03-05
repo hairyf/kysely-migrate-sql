@@ -2,7 +2,7 @@ import type { Kysely, MigratorProps } from 'kysely'
 import { Migrator } from 'kysely'
 import { SqlMigrationProvider } from './sql-migration-provider'
 
-export interface SqlMigratorProps extends Omit<MigratorProps, 'provider'> {
+export interface SqlMigratorProps extends Omit<MigratorProps, 'provider' | 'db'> {
   migrations: Record<string, string>
 }
 
